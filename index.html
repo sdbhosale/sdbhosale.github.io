@@ -70,7 +70,10 @@
     <br>
     <em>Aug 2022 - Dec 2022</em>
     <ul>
-      <li>Estimated camera using annotations and image to 3D correspondences. Followed it by generating a 3D point cloud from a single image with known annotations.</li>
+      <li>Implemented an algorithm to compute the camera matrix P using given 2D-3D point correspondences.</li>
+      <li>Developed an algorithm to compute the camera calibration matrix K from a triad of orthogonal vanishing points</li>
+      <li> Extended the camera calibration technique by computing the calibration matrix K from images of three squares without making additional assumptions about K.</li>
+      <li>  Implemented a single-view reconstruction algorithm to generate colored point clouds from a single image.</li>
     </ul>
   </td>
 </tr>		
@@ -102,17 +105,20 @@
     <em>Jan 23</em>
     
     <ul>
-      <li>Explored various loss functions to optimize for 3D represenations such as point clouds, mesh and voxels.</li>
-      <li>Trained a decoder network to generate 3D from single-views. Investigated the effect of hyperparameters to interpret the models and quality of meshes.</li>
+      <li>Explored loss functions for fitting voxel grids, point clouds, and meshes.</li>
+      <li>Trained single view to 3D pipelines for voxel grids, point clouds, and meshes using neural networks, and visualized the input RGB, ground truth 3D representation, and predicted 3D representation.</li>
+      <li> Quantitatively compared F1 score of 3D reconstruction for voxel grids, point clouds, and meshes. </li>
+      <li>Analyzed the effects of hyperparameter variations and interpreted the learned model by creating visualizations that highlight its behavior. </li>
+
     </ul>
   </td>
 </tr>		
 
 <tr onmouseout="hasdlfh()" onmouseover="nvh()">
   <td style="padding:20px;width:25%;vertical-align:middle;height:243px;">
-    <div id='pojhb' class='hidden'><img src="images/box.gif"   width="230"></div>
+    <div id='pojhb' class='hidden'><img src="images/truck.jpeg"   width="230"></div>
     <div id='ldhr'>
-      <img src="images/box2.jpeg" width="230">
+      <img src="images/truck_epi.jpeg" width="230">
     </div>
     <script type="text/javascript">
       function nvh() {
@@ -128,6 +134,43 @@
     </script>
   </td>
   <td width="75%" valign="middle">
+    <a href="https://www.andrew.cmu.edu/course/16-822/projects/sdbhosal/proj3/">
+      <papertitle>Epipolar Geometry [Website]</papertitle>
+    </a>
+    <br>
+    <em>Aug 2022 - Dec 2022</em>
+    
+    <ul>
+      <li>Implemented 8-point and 7-point algorithms for estimating the fundamental matrix.</li>
+      <li>Computed the essential matrix using the estimated fundamental matrix and provided intrinsic matrices.</li>
+      <li> Applied RANSAC with both the 7-point and 8-point algorithms to improve the estimation of the fundamental matrix in the presence of noisy correspondences. </li>
+      <li> Implemented triangulation to recover 3D points from 2D correspondences and camera matrices. </li>
+      <li> Performed bundle adjustment to optimize noisy camera matrices and the 3D structure, refining the quality of the 3D reconstruction.</li>
+      <li> Estimated the fundamental matrix on my own images using SIFT feature extraction and RANSAC, showcasing the generalizability.</li>
+    </ul>
+  </td>
+</tr>		
+
+<tr onmouseout="ppkkmm()" onmouseover="nknk()">
+  <td style="padding:20px;width:25%;vertical-align:middle;height:243px;">
+    <div id='pwdddd' class='hidden'><img src="images/box.gif"   width="230"></div>
+    <div id='qasdew'>
+      <img src="images/box2.jpeg" width="230">
+    </div>
+    <script type="text/javascript">
+      function nknk() {
+        document.getElementById('pwdddd').style.display = 'inline';
+        document.getElementById('qasdew').style.display = 'none';
+      }
+
+      function ppkkmm() {
+        document.getElementById('pwdddd').style.display = 'none';
+        document.getElementById('qasdew').style.display = 'inline';
+      }
+      ppkkmm()
+    </script>
+  </td>
+  <td width="75%" valign="middle">
     <a href="https://www.andrew.cmu.edu/course/16-822/projects/sdbhosal/proj4/">
       <papertitle>Structure from Motion [Website]</papertitle>
     </a>
@@ -135,13 +178,12 @@
     <em>Aug 2022 - Dec 2022</em>
     
     <ul>
-      <li>Implemented methods to calculate Fundamental Matrix form image correspondences</li>
-      <li>Developed algorithms to calculate Essential matrix using 7-point and 8-point methods with known camera intrinsics</li>
-      <li>Used bundle adjustment to reconstruct 3D and get cameras for multiple views</li>
-      <li>Implemented entire incremental SfM pipeline to generate and optimize a 3D reconstruction of the scene and its the cameras. Triangulated 3D by computing Fundamental and Essential matrix from image correspondences by use of RANSAC.</li>
+      <li>Implemented baseline reconstruction using two views, serving as an initialization for the incremental Structure-from-Motion (SfM) pipeline.</li>
+      <li> Implemented the incremental Structure-from-Motion (SfM) pipeline using synthetic images with clean 2D keypoint correspondences. Starting from two images with known extrinsics, I incrementally added the other two images to the reconstruction, updating the 3D structure and estimating the extrinsics of the new cameras.</li>
+      <li> Utilized COLMAP to run incremental SfM on my own captured multi-view images, resulting in 3D reconstructions of scenes or objects. </li> 
     </ul>
   </td>
-</tr>		
+</tr>
 
 <tr >
   <td style="padding:20px;width:25%;vertical-align:middle">
@@ -237,11 +279,11 @@
     <em>Aug 2022 - Dec 2022</em>
     
     <ul>
-      <li>
-        Performed affine and metric rectification of the images taken through the perspective cameras assume=ing pinhole camera model using manual annotations   </li>
-      <li>  
-        Estimated homographies between two views using point correspondences  </li>
-   
+      <li>Gained a solid understanding of the mathematical concepts behind projective geometry and homographiess   </li>
+      <li>Implemented an algorithm to generate affinely correct warps for images taken with perspective cameras.  </li>
+      <li>Developed a metric rectification algorithm that generates metrically correct warps for images captured through perspective cameras.</li>
+      <li>  Implemented an algorithm to estimate homographies between two images using point correspondences. </li>
+      <li> Developed an alternative approach to perform metric rectification directly using at least five pairs of perpendicular lines. </li>   
     </ul>
   </td>
 </tr>	
@@ -273,10 +315,12 @@
     <em>Jan 2023 </em>
     
     <ul>
-      <li>
-        Studied the 3D represenations and conversion between represenations such as mesh, point cloud, parametric & implicit surfaces  conversion between them.    </li>
-      <li> Explored camera transformation and rendering methods in PyTorch3D. </li>
-   
+      <li>Constructed and rendered various 3D objects, including a tetrahedron and a cube, using custom geometry and textures. </li>
+      <li> Explored 3D representations, including point clouds, parametric functions, and implicit surfaces. </li>
+      <li>Implemented camera effects like 360-degree renders and Dolly Zoom. </li>
+      <li>Re-textured 3D meshes and experimented with camera transformations for visualization. </li>
+      <li> Explored sampling points on meshes for generating point clouds with uniform surface sampling. </li>
+  
     </ul>
   </td>
 </tr>	
